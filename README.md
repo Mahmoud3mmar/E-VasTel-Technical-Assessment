@@ -5,7 +5,7 @@ A NestJS-based REST API for managing restaurant orders and generating comprehens
 ## 🚀 Live Demo
 
 The application is live and available for testing on Vercel:
-**[Live API Documentation](YOUR_VERCEL_LINK_HERE)**
+**[Live API Documentation](https://e-vas-tel-technical-assessment.vercel.app/api)**
 
 ## 📋 Features
 
@@ -118,7 +118,7 @@ docker run -p 3000:3000 \
 Once the application is running, you can access the interactive API documentation at:
 
 - **Local**: http://localhost:3000/api
-- **Live Demo**: [YOUR_VERCEL_LINK_HERE/api](YOUR_VERCEL_LINK_HERE/api)
+- **Live Demo**: [YOUR_VERCEL_LINK_HERE/api](https://e-vas-tel-technical-assessment.vercel.app/api)
 
 The Swagger UI provides:
 - Complete API endpoint documentation
