@@ -16,7 +16,7 @@ async function bootstrap() {
     forbidNonWhitelisted: true
   }));
 
-  // Set up Swagger
+  // Set up Swagger with Vercel-compatible configuration
   const config = new DocumentBuilder()
     .setTitle('Restaurant Management System')
     .setDescription('API for managing restaurant orders and generating reports')
@@ -24,13 +24,28 @@ async function bootstrap() {
     .addTag('orders')
     .addTag('reports')
     .build();
+  
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  
+  // Configure Swagger with custom options for Vercel
+  SwaggerModule.setup('api', app, document, {
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+    customSiteTitle: 'Restaurant Management API',
+    customfavIcon: '/favicon.ico',
+    customJs: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
+    ],
+    customCssUrl: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
+    ],
+  });
 
   // Use PORT environment variable or default to 3000
   const port = process.env.PORT || 3000;
   await app.listen(port);
-  
 }
 
 bootstrap();
